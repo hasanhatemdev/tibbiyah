@@ -1,0 +1,77 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(28px, 5vw, 72px);
+  background: var(--overlay-bg);
+  color: var(--overlay-fg);
+  visibility: hidden;
+  /* Collapsed until PageOverlay animates the reveal. */
+  clip-path: circle(0px at 50% 50%);
+}
+
+.overlay[data-open="true"] {
+  visibility: visible;
+}
+
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.back:focus-visible {
+  outline-color: currentColor;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(44px, 7vw, 110px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: var(--head-tracking);
+  text-wrap: balance;
+}
+
+.line {
+  margin: 0;
+  font-size: 20px;
+  opacity: 0.85;
+}
+
+.note {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.7;
+}

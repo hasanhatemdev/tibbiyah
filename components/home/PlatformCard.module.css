@@ -1,0 +1,81 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  min-height: 340px;
+  padding: 28px;
+  border: 0;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: 0 0 0 1px #2a327514;
+  color: var(--navy);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    background-color 0.45s var(--ease-out),
+    color 0.45s,
+    transform 0.5s var(--ease-out),
+    box-shadow 0.5s;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    background: var(--accent);
+    box-shadow: 0 24px 40px -24px var(--glow);
+    color: var(--on-accent);
+    transform: translateY(-6px);
+  }
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.number {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 1.5px currentColor;
+}
+
+/* Anchored at a fixed offset (not centred) so titles line up across cards
+   regardless of how many lines each one wraps to. */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.line {
+  font-size: 17px;
+  line-height: 1.5;
+  opacity: 0.85;
+  text-wrap: pretty;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  font-size: 15px;
+  font-weight: 500;
+}

@@ -1,49 +1,78 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Tibbiyah brand palette */
+  --navy: #2a3275;
+  --navy-raised: #303a82;
+  --cream: #f1f2bf;
+  --paper: #f8f8f3;
+  --white: #ffffff;
+  --orange: #f7981d;
+  --green: #006c40;
+  --cyan: #00b9db;
+  --teal: #368d75;
+  --lilac: #a9aed4;
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.2, 1);
+
+  --gutter: clamp(24px, 5vw, 72px);
+  --radius-card: 20px;
+
+  /* --font-hanken / --font-plex-arabic are provided by next/font in layout.tsx */
+  --font-latin-stack: var(--font-hanken), var(--font-plex-arabic), sans-serif;
+  --font-arabic-stack: var(--font-plex-arabic), var(--font-hanken), sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  margin: 0;
+  background: var(--paper);
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 a {
-  color: inherit;
+  color: var(--navy);
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+a:hover {
+  color: var(--green);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 4px;
+}
+
+/* Staggered entrance — set --rise-index via `rise()` from lib/motion.ts */
+.rise {
+  animation: rise 900ms var(--ease-out) backwards;
+  animation-delay: calc(120ms + var(--rise-index, 0) * 90ms);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
   }
 }
